@@ -1,7 +1,6 @@
 #include <iostream>
 #include <string>
 
-
 using namespace std;
 
 bool Validator(int caseNum, float score){
@@ -85,7 +84,7 @@ float Convert(float finaScore){
     else if(finaScore >= 76){
         return 2.75;
     }
-    else if(finaScore == 75){
+    else if(finaScore >= 74.5){
         return 3.0;
     } else {
         return 5.0;
@@ -96,15 +95,9 @@ float Convert(float finaScore){
 int main()
 {
     Calculate:
-        string name;
         float quizScore, midScore, labScore, quizRate, midRate, labRate;
         bool loop;
         bool ask = true;
-        
-        cout << "Enter student's name: ";
-        std::cin.get();
-        getline(cin, name);
-        cout << " " << endl;
 
         cout << "Quiz score: ";
         cin >> quizScore;
@@ -122,13 +115,10 @@ int main()
         labRate = Lab(labScore);
         
         cout << " " << endl;
-        
-        cout << "Quiz Rate: "<<quizRate << endl;
-        cout << "Midterm Exam Rate: "<<midRate << endl;
-        cout << "Laboratory Rate: " << labRate << endl;
-        cout << " " << endl;
+
         float finalGrade = Add(quizRate, midRate, labRate);
-        cout << name <<"'s Midterm Grade is: " << finalGrade << ", which is equivalent to: " << Convert(finalGrade);
+        cout <<"Computed grade: "<< finalGrade << endl;
+        cout <<"Grade equivalent: "<< Convert(finalGrade) << endl;
         
         int choice;
         askRepeat:

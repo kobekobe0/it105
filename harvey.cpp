@@ -33,7 +33,7 @@ int main()
     string name, newContact;
     string sim1[6];
     string sim2[6];
-    int counter1, counter2;
+    int counter1 = 0, counter2 = 0;
     int sim;
     int choice;
     int choiceContinue;
@@ -65,7 +65,7 @@ int main()
                 {
                     cout << "this is sim2" << endl;
                     askDetailsSim(name, num, newContact, counter1, counter2, 2);
-                    sim2[counter1] = newContact;
+                    sim2[counter2] = newContact;
                 }
                 else
                 {
