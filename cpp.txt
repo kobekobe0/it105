@@ -1,0 +1,65 @@
+#include <iostream>
+#include <string>
+
+
+using namespace std;
+
+bool Validator(string caseName, float score){
+    return 0;
+}
+
+
+
+float Quiz(float score) {
+    
+      float temp = (((score/50)*50)+50) * 0.2;
+      return temp;  
+    
+}
+
+float Midterm(float score){
+    
+    float temp = ((score/60)*50+50) * 0.4;
+    return temp;  
+    
+}
+
+float Lab(float score){
+   
+      float temp = ((score/60)*50+50) * 0.4;  
+      return temp;
+    
+}
+
+
+int main()
+{
+    string name;
+    float quizScore, midScore, labScore, quizRate, midRate,labRate;
+    cout << "Enter student's name" << endl;
+    getline(std::cin, name);
+    cout << name << endl;
+    
+    cout << "Quiz score: ";
+    cin >> quizScore;
+    quizRate = Quiz(quizScore);
+    
+    cout << "Midterm score: ";
+    cin >>midScore;
+    midRate = Midterm(midScore);
+    
+    cout << "Laboratory Activity score: ";
+    cin >> labScore;
+    labRate = Lab(labScore);
+    
+    cout << " " << endl;
+    
+    cout << "Quiz Rate: "<<quizRate << endl;
+    cout << "Midterm Rate: "<<midRate << endl;
+    cout << "Laboratory Rate: " << labRate << endl;
+    
+    
+    
+   
+    return EXIT_SUCCESS;
+}
