@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+#include <string>
 using namespace std;
 
 class Book {       
@@ -17,8 +18,7 @@ Book books[10];
 int BOOKSLENGTH = 10;
 Book borrowedBooks[10];
 
-void pushZerosToEnd(Book arr[], int n)
-{
+void pushZerosToEnd(Book arr[], int n){
     int count = {0}; 
 
     for (int i = 0; i < n; i++){
@@ -26,7 +26,6 @@ void pushZerosToEnd(Book arr[], int n)
            arr[count++] = arr[i]; 
         }    
     }
-    
     while (count < n){
         arr[count++] = {};
     }
@@ -34,18 +33,15 @@ void pushZerosToEnd(Book arr[], int n)
 
 void pushBack(){
     int n = sizeof(books) / sizeof(books[0]);
-    pushZerosToEnd(books, n);
-    
+    pushZerosToEnd(books, n);   
 }
 
-int listOfBooks() {  
-    
+int listOfBooks() {     
     string list = "";
     cout << "List of books available: " << endl;
     for (int i = 0; i < 10; i++) {
         list += "[" + to_string(i) + "]" + " " + to_string(books[i].ISBN) + " " + books[i].title + " " + books[i].author + " " + books[i].publisher + " " + to_string(books[i].year) + "\n";
-    }
-    
+    }   
     cout << list;
     return 0;   
 }
@@ -75,7 +71,7 @@ class User{
             newBook.publisher = publisher;
             newBook.year = year;
             newBook.ISBN = ISBN;
-            books[BOOKCOUNTER] = newBook; //find a way to get the index of the book
+            books[BOOKCOUNTER] = newBook; 
             BOOKCOUNTER++;
             listOfBooks();
         };
@@ -190,7 +186,6 @@ class User{
                 }
             }
             cout << bookk;
-
             return 0;
         }
 };
@@ -233,15 +228,18 @@ int createUser(){
     cin >> name;
     cout << "Enter your password: ";
     cin >> password;
+
     User user1;
-        user1.createUser(name, password);
-        if(user1.name == "" && user1.password == ""){
-            cout << "invalid user" << endl;
-        } else {
-            cout << "User created" << endl;
-            user = user1;
-            Login();
-        }  
+
+    user1.createUser(name, password);
+
+    if(user1.name == "" && user1.password == ""){
+        cout << "invalid user" << endl;
+    } else {
+        cout << "User created" << endl;
+        user = user1;
+        Login();
+    }  
     return 0;
 }
 
@@ -252,12 +250,13 @@ int createABook(){
     int year;
     int ISBN;
 
+    cin.ignore();
     cout << "Enter the title: ";
-    cin >> title;
+    getline(cin, title);
     cout << "Enter the author: ";
-    cin >> author;
+    getline(cin, author);
     cout << "Enter the publisher: ";
-    cin >> publisher;
+    getline(cin, publisher);
     cout << "Enter the year: ";
     cin >> year;
     cout << "Enter the ISBN: ";
